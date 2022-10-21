@@ -133,8 +133,7 @@ namespace CP_LAB_2
                 }
 
                 availableDays++;
-                if (w == s)
-                    s = 0;
+                
                 s++;
             }
 
