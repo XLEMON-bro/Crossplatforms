@@ -1,11 +1,13 @@
 ﻿using CP_LAB_5.Models.ViewModels;
 using CP_LAB_5_LIB;
 using CP_LAB_5_LIB.LABs;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
 namespace CP_LAB_5.Controllers
 {
+    [Authorize]
     public class LabWorkController : Controller
     {
         private ILabWorker labWorker;
@@ -27,6 +29,8 @@ namespace CP_LAB_5.Controllers
 
             var result = await labWorker.GetOutputForLab(viewModel.Input);
 
+            viewModel.Output = result;
+
             return View(viewModel);
         }
 
@@ -42,6 +46,8 @@ namespace CP_LAB_5.Controllers
 
             var result = await labWorker.GetOutputForLab(viewModel.Input);
 
+            viewModel.Output = result;
+
             return View(viewModel);
         }
 
@@ -56,6 +62,8 @@ namespace CP_LAB_5.Controllers
             labWorker = new LAB3();
 
             var result = await labWorker.GetOutputForLab(viewModel.Input);
+
+            viewModel.Output = result;
 
             return View(viewModel);
         }

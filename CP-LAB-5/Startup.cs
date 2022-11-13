@@ -33,8 +33,8 @@ namespace CP_LAB_5
             services.AddAuthentication("UserCookieAuth").AddCookie("UserCookieAuth", opt =>
             {
                 opt.Cookie.Name = "UserCookieAuth";
-                opt.LoginPath = "";//change
-                opt.ExpireTimeSpan = TimeSpan.FromHours(12);
+                opt.LoginPath = "/Account/Login";
+                opt.ExpireTimeSpan = TimeSpan.FromDays(30);
                 opt.SessionStore = services.BuildServiceProvider().GetService<ITicketStore>();
             });
             services.AddSession();

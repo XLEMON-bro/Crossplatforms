@@ -30,27 +30,5 @@ namespace CP_LAB_5.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-
-
-        /*private async Task Authentication(string name, string email)
-        {
-            var claims = new List<Claim>
-            {
-                new Claim(ClaimTypes.Name, name),
-                new Claim(ClaimTypes.Email, email)
-            };
-
-            var identity = new ClaimsIdentity(claims, "UserCookieAuth");
-            ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(identity);
-
-            await HttpContext.SignInAsync("UserCookieAuth", claimsPrincipal);
-        }
-
-        public async Task<IActionResult> Logout()
-        {
-            await HttpContext.SignOutAsync("UserCookieAuth");
-
-            return RedirectToAction("Main", "Home");
-        }*/
     }
 }
