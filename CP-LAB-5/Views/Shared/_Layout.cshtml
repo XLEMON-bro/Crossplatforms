@@ -35,11 +35,12 @@
                 @if (User.Identity.IsAuthenticated)
                 {
                     <a class="navbar-brand" asp-area="" asp-controller="Account" asp-action="Profile">Profile</a>
-                    <a class="navbar-brand" asp-area="" asp-controller="Account" asp-action="Logout">Logout</a>
+                    //<a class="navbar-brand" asp-area="" asp-controller="Account" asp-action="Logout">Logout</a>
                 }
                 else
                 {
-                    <a class="navbar-brand" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
+                    <a class="navbar-brand" asp-controller="Account" asp-action="GoogleLogin">Login With Google |</a>
+                    <a class="navbar-brand" asp-area="" asp-controller="Account" asp-action="Login">Login |</a>
                     <a class="navbar-brand" asp-area="" asp-controller="Account" asp-action="Register">Register</a>
                 }
             </div>

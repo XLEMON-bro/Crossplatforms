@@ -30,13 +30,26 @@ namespace CP_LAB_5
             services.AddDbContext<UserContext>(option =>
                 option.UseSqlServer(Configuration.GetConnectionString("UsersDataBase")));
 
-            services.AddAuthentication("UserCookieAuth").AddCookie("UserCookieAuth", opt =>
+            services.AddAuthentication(o => 
+            {
+                o.DefaultScheme = "UserCookieAuth";
+                o.DefaultSignInScheme = "External";
+                
+            }).AddCookie("UserCookieAuth", opt =>
             {
                 opt.Cookie.Name = "UserCookieAuth";
                 opt.LoginPath = "/Account/Login";
                 opt.ExpireTimeSpan = TimeSpan.FromDays(30);
                 opt.SessionStore = services.BuildServiceProvider().GetService<ITicketStore>();
-            });
+            }).AddCookie("External")
+            .AddGoogle(options =>
+            {
+                options.ClientId =
+                    Configuration.GetSection("Authentication:Google:ClientId").Value;
+                options.ClientSecret =
+                    Configuration.GetSection("Authentication:Google:ClientSecret").Value;
+            }); 
+
             services.AddSession();
         }
 
