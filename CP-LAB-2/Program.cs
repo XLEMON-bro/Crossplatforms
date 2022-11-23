@@ -18,7 +18,7 @@ namespace CP_LAB_2
 
         private static void Main(string[] args)
         {
-            var temp = GetSutibleDaysAmount(3, 31, 7, 7,new int[] { 7}, new int[] {1, 9});
+            //var temp = GetSutibleDaysAmount(3, 31, 7, 7,new int[] { 7}, new int[] {1, 9});
 
             if (!File.Exists(InputFile))
             {

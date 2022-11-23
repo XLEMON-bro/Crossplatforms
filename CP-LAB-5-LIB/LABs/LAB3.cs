@@ -17,6 +17,8 @@ namespace CP_LAB_5_LIB.LABs
 
         private string GetOutput(string Input)
         {
+            var strMas = Input.Split("\r\n");
+
             return null;
         }
     }
