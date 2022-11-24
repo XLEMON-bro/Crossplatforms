@@ -64,7 +64,7 @@ class Program
         if (tasklines.Count() <= 1)
             throw new Exception("Incorrect data.");
         var str = tasklines[0].Split();
-        if (!(int.TryParse(str[0], out int _) && int.TryParse(str[1], out int _)))
+        if (!(int.TryParse(str[0], out int res1) && int.TryParse(str[1], out int res2)))
         {
             throw new Exception("Wrong N or M.");
         }
@@ -73,7 +73,7 @@ class Program
             string line = tasklines[i];
             for (int j = 0; j < line.Length; j++)
             {
-                if (int.TryParse(line[j].ToString(), out int _))
+                if (!int.TryParse(line[j].ToString(), out int res3))
                 {
                     throw new Exception("Wrong symbols.");
                 }
